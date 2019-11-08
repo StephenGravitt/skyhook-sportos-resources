@@ -82,7 +82,7 @@ function getFieldValue (inputID, type){
     } else if (type === "select"){
         var selectInput = document.getElementById( inputID );
         if(selectInput){
-            return selectInputoptions[selectInput.selectedIndex].value;
+            return selectInput.options[selectInput.selectedIndex].value;
         } else{
             return false;
         }
