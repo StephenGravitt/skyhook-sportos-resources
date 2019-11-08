@@ -141,7 +141,7 @@ function detectFieldChange ( inputID, inputType ){
         var inputItems = document.getElementsByName( inputID );
         if( inputItems ){
             for (var i=0; inputItems.length<i; i++) {
-                checkboxes[i].addEventListener("change", function() {
+                inputItems[i].addEventListener("change", function() {
                     console.log ( getFieldValue (inputID, inputType) );
                 });
             }
