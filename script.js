@@ -1,5 +1,3 @@
-
-
 var inputData = [{
     "field_name": "age",
     "field_id": "comp-k2qjgqegcollection",
@@ -71,15 +69,15 @@ return "";
 }
 
 
-function getFieldValue (inputID, type){
-    if ( type === "text" ){
+function getFieldValue (inputID, inputType){
+    if ( inputType === "text" ){
         var textField  = document.getElementById( inputID );
         if(textField){
             return textField.value;
         } else{
             return false;
         }
-    } else if (type === "select"){
+    } else if (inputType === "select"){
         var selectInput = document.getElementById( inputID );
         if(selectInput){
             return selectInput.options[selectInput.selectedIndex].value;
@@ -87,7 +85,7 @@ function getFieldValue (inputID, type){
             return false;
         }
     }
-    else if (type === "checkbox"){
+    else if (inputType === "checkbox"){
         var checkboxes = document.getElementsByName( inputID );
         if( checkboxes ){
             var checkVals = new Array;
@@ -102,7 +100,7 @@ function getFieldValue (inputID, type){
         } else{
             return false;
         }
-    }else if (type === "radio"){
+    }else if (inputType === "radio"){
         var radios = document.getElementsByName( inputID );
         if( radios ){
             var radioVal; 
@@ -122,23 +120,43 @@ function getFieldValue (inputID, type){
 
 }
 
+function detectFieldChange ( inputID, inputType ){
+    if ( inputType == "text" ){
+        var textField  = document.getElementById( inputID );
+        if(textField){
+            
+            textField.addEventListener('input', function (evt) {
+                console.log ( getFieldValue (inputID, inputType) );
+            });
+            
+        }
+    }else if ( inputType === "select" ){
+        var selectField = document.getElementById( inputID );
+        if( selectField ){
+            selectField.addEventListener("click", function() {
+                console.log ( getFieldValue (inputID, inputType) );
+            });
+    
+            selectField.addEventListener("change", function() {
+                console.log ( getFieldValue (inputID, inputType) );
+            });
+        }
+    }
+}
 
 for(var i = 0; i < inputData.length; i++) {
     var inputObj = inputData[i];
-
-    console.log(inputObj.field_name);
-    console.log( getFieldValue( inputObj.field_id, inputObj.field_type ) );
+    
+    detectFieldChange ( inputObj.field_id, inputObj.field_type );
+    
+    //console.log( getFieldValue( inputObj.field_id, inputObj.field_type ) );
 }
 
 
 
 /*
 
-var onChangeInput = function(el) {
-  console.info(this.value);
-};
-var input = document.getElementById('some-id');
-input.addEventListener('input', onChange, false); 
+
 
 
 */
