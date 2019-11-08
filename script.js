@@ -75,7 +75,7 @@ function getFieldValue (inputID, type){
     if ( type === "text" ){
         var textField  = document.getElementById( inputID );
         if(textField){
-            return textVal.value;
+            return textField.value;
         } else{
             return false;
         }
