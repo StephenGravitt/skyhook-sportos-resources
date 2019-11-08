@@ -2,7 +2,7 @@
 
 var inputData = [{
     "field_name": "age",
-    "field_id": "comp-k2nqv914input",
+    "field_id": "comp-k2qjgqegcollection",
     "field_type": "select"
 },
 {
@@ -73,27 +73,28 @@ return "";
 
 function getFieldValue (inputID, type){
     if ( type === "text" ){
-        var textVal = document.getElementById( inputID ).value;
-        if(textVal){
-            return textVal;
+        var textField  = document.getElementById( inputID );
+        if(textField){
+            return textVal.value;
         } else{
             return false;
         }
     } else if (type === "select"){
         var selectInput = document.getElementById( inputID );
-        var selectVal = selectInput.options[selectInput.selectedIndex].value;
-        if(selectVal){
-            return selectVal;
+        if(selectInput){
+            return selectInputoptions[selectInput.selectedIndex].value;
         } else{
             return false;
         }
     }
     else if (type === "checkbox"){
         var checkboxes = document.getElementsByName( inputID );
-        var checkVals = new Array;
-        for (var i=0; checkboxes.length<i; i++) {
-            if ( checkboxes[i].checked ) {
-                checkVals.push( checkboxes[i].value );
+        if( checkboxes ){
+            var checkVals = new Array;
+            for (var i=0; checkboxes.length<i; i++) {
+                if ( checkboxes[i].checked ) {
+                    checkVals.push( checkboxes[i].value );
+                }
             }
         }
         if(checkVals){
@@ -103,11 +104,13 @@ function getFieldValue (inputID, type){
         }
     }else if (type === "radio"){
         var radios = document.getElementsByName( inputID );
-        var radioVal;       
-        for (var i = 0, length = radios.length; i < length; i++){
-            if ( radios[i].checked ){
-                radioVal = radios[i].value;
-                break;
+        if( radios ){
+            var radioVal; 
+            for (var i = 0, length = radios.length; i < length; i++){
+                if ( radios[i].checked ){
+                    radioVal = radios[i].value;
+                    break;
+                }
             }
         }
         if(radioVal){
