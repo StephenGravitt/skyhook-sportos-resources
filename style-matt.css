@@ -1,2 +1,78 @@
 /* Matt's Styles */
 
+/* The container for the checkboxes */
+.style-k2qetugm_vertical-axis .style-k2qetugmitems {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.style-k2qetugmcheckbox_with-label {
+    padding-right: 40px;
+    padding-bottom: 30px;
+}
+
+/* The checkboxes and labels */
+div.style-k2qetugmcheckbox_with-label.style-k2qetugmcheckbox {
+    position: relative;
+    height: 200px;
+    width: 200px;
+}
+
+label.style-k2qetugmcheckboxcontainer {
+    position: absolute;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+    border: 1px solid #707070;
+}
+
+input.style-k2qetugmcheckboxinput {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    height: 200px;
+    width: 200px;
+}
+
+span.style-k2qetugmcheckboxcheckbox {
+    display: none;
+}
+
+div.style-k2qetugmcheckboxcheckmark {
+    position: absolute;
+    height: 200px !important;
+    width: 200px !important;
+    display: block;
+    margin: 0 !important;
+}
+
+    div.style-k2qetugmcheckboxcheckmark svg {
+        display: none;
+    }
+
+input.style-k2qetugmcheckboxinput:hover ~ div.style-k2qetugmcheckboxcheckmark,
+input.style-k2qetugmcheckboxinput:checked ~ div.style-k2qetugmcheckboxcheckmark {
+    background-color: #707070 !important;
+    display: block !important;
+}
+
+div.style-k2qetugmcheckboxlabel {
+    position: absolute;
+    margin: 0 !important;
+    padding: 0 15px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+input.style-k2qetugmcheckboxinput:hover ~ .style-k2qetugmcheckboxlabel .style-k2qetugmcheckboxtext,
+input.style-k2qetugmcheckboxinput:checked ~ .style-k2qetugmcheckboxlabel .style-k2qetugmcheckboxtext {
+    color: white !important;
+}
+
+input.style-k2qetugmcheckboxinput:active ~ div.style-k2qetugmcheckboxcheckmark {
+    background-color: darkgray !important;
+}
