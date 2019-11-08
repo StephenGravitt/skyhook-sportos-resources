@@ -20,7 +20,7 @@ var inputData = [{
 },
 {
     "field_name": "focus",
-    "field_id": "comp-k2qepdz6[]",
+    "field_id": "comp-k2qepdz6",
     "field_type": "checkbox"
 },
 {
@@ -35,12 +35,12 @@ var inputData = [{
 },
 {
     "field_name": "values",
-    "field_id": "comp-k2qh1frq[]",
+    "field_id": "comp-k2qh1frq",
     "field_type": "checkbox"
 },
 {
     "field_name": "attribute",
-    "field_id": "comp-k2qivcl7[]",
+    "field_id": "comp-k2qj5t61",
     "field_type": "radio"
 }
 ]
@@ -141,6 +141,9 @@ function detectFieldChange ( inputID, inputType ){
         var inputItems = document.getElementsByName( inputID );
         if( inputItems ){
             for (var i=0; inputItems.length > i; i++) {
+                inputItems[i].addEventListener("click", function() {
+                    console.log ( getFieldValue (inputID, inputType) );
+                });
                 inputItems[i].addEventListener("change", function() {
                     console.log ( getFieldValue (inputID, inputType) );
                 });
