@@ -89,7 +89,7 @@ function getFieldValue (inputID, inputType){
         var checkboxes = document.getElementsByName( inputID );
         if( checkboxes ){
             var checkVals = new Array;
-            for (var i=0; checkboxes.length>i ; i++ )  {
+            for (var i=0; checkboxes.length > i ; i++ )  {
                 if ( checkboxes[i].checked ) {
                     checkVals.push( checkboxes[i].value );
                 }
@@ -140,7 +140,7 @@ function detectFieldChange ( inputID, inputType ){
     }else if ( inputType === "checkbox" || inputType === "radio" ){
         var inputItems = document.getElementsByName( inputID );
         if( inputItems ){
-            for (var i=0; inputItems.length<i; i++) {
+            for (var i=0; inputItems.length > i; i++) {
                 inputItems[i].addEventListener("change", function() {
                     console.log ( getFieldValue (inputID, inputType) );
                 });
