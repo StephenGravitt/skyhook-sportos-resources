@@ -15,8 +15,8 @@ var inputData = [{
 },
 {
     "field_name": "relationship",
-    "field_id": "comp-k2nr33orinput",
-    "field_type": "text"
+    "field_id": "comp-k2qjlhgecollection",
+    "field_type": "select"
 },
 {
     "field_name": "focus",
@@ -133,13 +133,18 @@ function detectFieldChange ( inputID, inputType ){
     }else if ( inputType === "select" ){
         var selectField = document.getElementById( inputID );
         if( selectField ){
-            selectField.addEventListener("click", function() {
-                console.log ( getFieldValue (inputID, inputType) );
-            });
-    
             selectField.addEventListener("change", function() {
                 console.log ( getFieldValue (inputID, inputType) );
             });
+        }
+    }else if ( inputType === "checkbox" || inputType === "radio" ){
+        var inputItems = document.getElementsByName( inputID );
+        if( inputItems ){
+            for (var i=0; inputItems.length<i; i++) {
+                checkboxes[i].addEventListener("change", function() {
+                    console.log ( getFieldValue (inputID, inputType) );
+                });
+            }
         }
     }
 }
