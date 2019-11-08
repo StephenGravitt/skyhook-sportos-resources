@@ -1,24 +1,28 @@
-/* Matt's Styles */
-
-/* The container for the checkboxes */
-.style-k2qetugm_vertical-axis .style-k2qetugmitems {
+/* The container for the checkboxes     */
+/* Note: Wix creates unique class names  
+         for each form element thus all the comma-seperated selectors */
+.style-k2qetugm_vertical-axis.style-k2qetugmitems,
+.style-k2qh1i5g_vertical-axis.style-k2qh1i5g {
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.style-k2qetugmcheckbox_with-label {
+.style-k2qetugmcheckbox_with-label,
+.style-k2qh1i5gcheckbox_with-label {
     padding-right: 40px;
     padding-bottom: 30px;
 }
 
 /* The checkboxes and labels */
-div.style-k2qetugmcheckbox_with-label.style-k2qetugmcheckbox {
+div.style-k2qetugmcheckbox_with-label.style-k2qetugmcheckbox,
+div.style-k2qh1i5gcheckbox_with-label.style-k2qh1i5gcheckbox {
     position: relative;
     height: 200px;
     width: 200px;
 }
 
-label.style-k2qetugmcheckboxcontainer {
+label.style-k2qetugmcheckboxcontainer,
+label.style-k2qh1i5gcheckboxcontainer {
     position: absolute;
     cursor: pointer;
     height: 200px;
@@ -26,18 +30,21 @@ label.style-k2qetugmcheckboxcontainer {
     border: 1px solid #707070;
 }
 
-input.style-k2qetugmcheckboxinput {
+input.style-k2qetugmcheckboxinput,
+input.style-k2qh1i5gcheckboxinput {
     position: absolute;
     clip: rect(0,0,0,0);
     height: 200px;
     width: 200px;
 }
 
-span.style-k2qetugmcheckboxcheckbox {
+span.style-k2qetugmcheckboxcheckbox,
+span.style-k2qh1i5gcheckboxcheckbox {
     display: none;
 }
 
-div.style-k2qetugmcheckboxcheckmark {
+div.style-k2qetugmcheckboxcheckmark,
+div.style-k2qh1i5gcheckboxcheckmark {
     position: absolute;
     height: 200px !important;
     width: 200px !important;
@@ -45,17 +52,21 @@ div.style-k2qetugmcheckboxcheckmark {
     margin: 0 !important;
 }
 
-    div.style-k2qetugmcheckboxcheckmark svg {
+    div.style-k2qetugmcheckboxcheckmark svg,
+    div.style-k2qh1i5gcheckboxcheckmark svg {
         display: none;
     }
 
 input.style-k2qetugmcheckboxinput:hover ~ div.style-k2qetugmcheckboxcheckmark,
-input.style-k2qetugmcheckboxinput:checked ~ div.style-k2qetugmcheckboxcheckmark {
+input.style-k2qetugmcheckboxinput:checked ~ div.style-k2qetugmcheckboxcheckmark,
+input.style-k2qh1i5gcheckboxinput:hover ~ div.style-k2qh1i5gcheckboxcheckmark,
+input.style-k2qh1i5gcheckboxinput:checked ~ div.style-k2qh1i5gcheckboxcheckmark, {
     background-color: #707070 !important;
     display: block !important;
 }
 
-div.style-k2qetugmcheckboxlabel {
+div.style-k2qetugmcheckboxlabel,
+div.style-k2qh1i5gcheckboxlabel {
     position: absolute;
     margin: 0 !important;
     padding: 0 15px;
@@ -69,10 +80,13 @@ div.style-k2qetugmcheckboxlabel {
 }
 
 input.style-k2qetugmcheckboxinput:hover ~ .style-k2qetugmcheckboxlabel .style-k2qetugmcheckboxtext,
-input.style-k2qetugmcheckboxinput:checked ~ .style-k2qetugmcheckboxlabel .style-k2qetugmcheckboxtext {
+input.style-k2qetugmcheckboxinput:checked ~ .style-k2qetugmcheckboxlabel .style-k2qetugmcheckboxtext,
+input.style-k2qh1i5gcheckboxinput:hover ~ .style-k2qh1i5gcheckboxlabel .style-k2qh1i5gcheckboxtext,
+input.style-k2qh1i5gcheckboxinput:checked ~ .style-k2qh1i5gcheckboxlabel .style-k2qetugmcheckboxtext {
     color: white !important;
 }
 
-input.style-k2qetugmcheckboxinput:active ~ div.style-k2qetugmcheckboxcheckmark {
+input.style-k2qetugmcheckboxinput:active ~ div.style-k2qetugmcheckboxcheckmark,
+input.style-k2qh1i5gcheckboxinput:active ~ div.style-k2qh1i5gcheckboxcheckmark {
     background-color: darkgray !important;
 }
