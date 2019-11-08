@@ -3,7 +3,7 @@
 var inputData = [{
     "field_name": "age",
     "field_id": "comp-k2nqv914input",
-    "field_type": "text"
+    "field_type": "select"
 },
 {
     "field_name": "gender",
