@@ -283,7 +283,6 @@ function changeFormRedirect(){
 function initDataTracking(){
     for(var i = 0; i < inputData.length; i++) {
         detectFieldChange ( inputData[i].field_id, inputData[i].field_type );
-        //updateData(inputData[i].field_id, getFieldValue( inputData[i].field_id , inputData[i].field_type ));
     }
 }
 
@@ -297,6 +296,7 @@ function initResultsOutput( pagePath ){
             break;
         }
     }
+    outputData(parentBox)
     return parentBox;
 }
 
