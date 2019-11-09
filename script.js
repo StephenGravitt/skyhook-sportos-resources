@@ -1,3 +1,4 @@
+//json array of fields we're tracking. Note that checkboxes and radios are using "name" not "id" attributes as to grab the group/collection
 var inputData = [{
     "field_name": "age",
     "field_id": "comp-k2qjgqegcollection",
@@ -45,14 +46,33 @@ var inputData = [{
 }
 ]
 
+//json array of page redirect possibilities
+var successPages = [
+    { "page_name": "acceptance", "page_url": "/success-acceptance"},
+    { "page_name": "balance", "page_url": "/success-balance"},
+    { "page_name": "body composition", "page_url": "/success-body-composition"},
+    { "page_name": "coachability", "page_url": "/success-coachability"},
+    { "page_name": "confidence", "page_url": "/success-confidence"},
+    { "page_name": "endurance", "page_url": "/success-endurance"},
+    { "page_name": "fluidity", "page_url": "/success-fluidity"},
+    { "page_name": "next", "page_url": "/success-next"},
+    { "page_name": "perserverance", "page_url": "/success-perserverance"},
+    { "page_name": "power", "page_url": "/success-power"},
+    { "page_name": "quickness", "page_url": "/success-quickness"},
+    { "page_name": "resilience", "page_url": "/success-resilience"},
+    { "page_name": "speed", "page_url": "/success-speed"}
+    ]
 
+//generic function to set a cookie
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires="+d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
-  
+
+
+//generic function for grabbing a cookie's value
 function getCookie(cname) {
 var name = cname + "=";
 var ca = document.cookie.split(';');
@@ -68,7 +88,7 @@ for(var i = 0; i < ca.length; i++) {
 return "";
 }
 
-
+//function that grabs a field's value, different methods for different field types
 function getFieldValue (inputID, inputType){
     if ( inputType === "text" ){
         var textField  = document.getElementById( inputID );
@@ -106,7 +126,7 @@ function getFieldValue (inputID, inputType){
             var radioVal; 
             for (var i = 0; radios.length > i ; i++){
                 if ( radios[i].checked ){
-                    radioVal = radios[i].parentNode.textContent;
+                    radioVal = radios[i].parentNode.textContent.toLowerCase();
                     break;
                 }
             }
@@ -120,6 +140,8 @@ function getFieldValue (inputID, inputType){
 
 }
 
+
+//function that handles adding onchange and/or onclick events, different for different field types
 function detectFieldChange ( inputID, inputType ){
     if ( inputType == "text" ){
         var textField  = document.getElementById( inputID );
@@ -153,6 +175,7 @@ function detectFieldChange ( inputID, inputType ){
     }
 }
 
+//function to update the cookie that stores input data
 function updateData(inputID, inputValue){
     for(var i = 0; i < inputData.length; i++) {
         if ( inputData[i].field_id === inputID ){
@@ -162,26 +185,44 @@ function updateData(inputID, inputValue){
     setCookie('inputData',JSON.stringify(inputData),1);
 }
 
+//start watching all form fields we're tracking
 for(var i = 0; i < inputData.length; i++) {
-    var inputObj = inputData[i];    
-    detectFieldChange ( inputObj.field_id, inputObj.field_type );
+    detectFieldChange ( inputData[i].field_id, inputData[i].field_type );
 }
 
 
 $("#comp-k2qivcerform").submit(function(e) {
+    //grab collective form data
+    var updatedData = JSON.parse(getCookie('inputData'));
+    
+    //verify form data was received correctly
+    if( updatedData ){
+        e.preventDefault();
+        var form = $(this);
+        
+        //verify the most valuable attribute
+        updatedData.forEach(function(inputField){
+            if(inputField.field_name == 'attribute'){
+                redirectPage = inputField.value;
+            }
+            
+        });
 
-    e.preventDefault(); // avoid to execute the actual submit of the form.
+        //grab the correct page_url for redirection based on selection
+        successPages.forEach(function(pages){
+            if(pages.page_name == redirectPage){
+                var redirectURL = pages.page_url;
+            }    
+        });
 
-    var form = $(this);
-    var url = form.attr('action');
+        //default to speed page if somehow we've failed to get the proper page.
+        if(!redirectURL){redirectURL = "/success-speed" };
 
-    $.ajax({
-           data: form.serialize(), // serializes the form's elements.
-           success: function(data)
-           {
-               window.location.href = "/success-power"
-           }
-         });
-
-
+        $.ajax({
+            data: form.serialize(), // serializes the form's elements.
+            success: function(data){
+                window.location.href = redirectURL;
+            }
+            });
+    }
 });
