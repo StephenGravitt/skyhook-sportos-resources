@@ -180,9 +180,11 @@ function updateData(inputID, inputValue){
     for(var i = 0; i < inputData.length; i++) {
         if ( inputData[i].field_id === inputID ){
             inputData[i].value = inputValue;
+            console.log( "UPDATING: field name: " + inputData[i].field_name + " | field value: " + inputData[i].value);
         }
     }
     setCookie('inputData',JSON.stringify(inputData),1);
+    
 }
 
 //start watching all form fields we're tracking
@@ -200,6 +202,7 @@ $("#comp-k2qivcerform").submit(function(e) {
         e.preventDefault();
         var form = $(this);
         
+        var redirectPage
         //verify the most valuable attribute
         updatedData.forEach(function(inputField){
             if(inputField.field_name == 'attribute'){
@@ -207,14 +210,14 @@ $("#comp-k2qivcerform").submit(function(e) {
             }
             
         });
-
+        var redirectURL
         //grab the correct page_url for redirection based on selection
         successPages.forEach(function(pages){
-            if(pages.page_name == redirectPage){
-                var redirectURL = pages.page_url;
+            if(pages.page_name === redirectPage){
+                redirectURL = pages.page_url;
             }    
         });
-
+        console.log(redirectURL);
         //default to speed page if somehow we've failed to get the proper page.
         if(!redirectURL){redirectURL = "/success-speed" };
 
