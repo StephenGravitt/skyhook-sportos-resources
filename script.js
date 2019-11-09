@@ -230,7 +230,7 @@ function detectFieldChange ( inputID, inputType ){
 //function to update the cookie that stores input data
 function updateData(inputID, inputValue){
     for(var i = 0; i < inputData.length; i++) {
-        if ( inputData[i].field_id === inputID ){
+        if ( inputData[i].field_id === inputID && inputValue ){
             inputData[i].value = inputValue;
             console.log( "UPDATING: field name: " + inputData[i].field_name + " | field value: " + inputData[i].value);
         }
