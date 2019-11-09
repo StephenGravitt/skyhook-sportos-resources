@@ -302,7 +302,7 @@ function initResultsOutput( pagePath ){
 
 function getValueByName(jsonArray, field_name){
     for(var i = 0; i < jsonArray.length; i++) {
-        if(jsonArray[i].field_name){
+        if(jsonArray[i].field_name === field_name){
             return jsonArray[i].value;
         }
     }
