@@ -325,7 +325,7 @@ function outputData(parentBox){
             outputHTML += "<div class=\"focus sportos-block\" >";
                 var focusVals = new Array;
                 focusVals = getValueByName(cookieData, "focus");
-                if(focusVals.length < 0 ){
+                if(focusVals.length > 0 ){
                     for ( i=0 ; focusVals.length > i ; i++){
                         outputHTML += "<div class=\"sportos-focus-item\" >" + focusVals[i] + "</div>";
                     }
