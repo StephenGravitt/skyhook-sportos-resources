@@ -110,8 +110,8 @@ var successPages = [
 	},
 	{
 	   "page_name": "speed",
-	   "page_url": "/success-speed",
-	   "parent_box": "comp-k2nwj0gglink"
+	   "page_url": "/success-test",
+	   "parent_box": "comp-k2ru4y04"
 	}
 ]
 
@@ -239,9 +239,10 @@ function updateData(inputID, inputValue){
     
 }
 
-//start watching all form fields we're tracking
+//start watching all form fields we're tracking, load initial values seen on page (as this code loads at page footer)
 for(var i = 0; i < inputData.length; i++) {
     detectFieldChange ( inputData[i].field_id, inputData[i].field_type );
+    updateData(inputData[i].field_id, getFieldValue( inputData[i].field_id , inputData[i].field_type ));
 }
 
 
@@ -278,6 +279,6 @@ $("#comp-k2qivcerform").submit(function(e) {
             success: function(data){
                 window.location.href = redirectURL;
             }
-            });
+        });
     }
 });
