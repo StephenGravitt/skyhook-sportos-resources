@@ -106,7 +106,7 @@ function getFieldValue (inputID, inputType){
             var radioVal; 
             for (var i = 0; radios.length > i ; i++){
                 if ( radios[i].checked ){
-                    radioVal = radios[i].value;
+                    radioVal = radios[i].parentNode.textContent;
                     break;
                 }
             }
@@ -163,18 +163,25 @@ function updateData(inputID, inputValue){
 }
 
 for(var i = 0; i < inputData.length; i++) {
-    var inputObj = inputData[i];
-    
+    var inputObj = inputData[i];    
     detectFieldChange ( inputObj.field_id, inputObj.field_type );
-    
-    //console.log( getFieldValue( inputObj.field_id, inputObj.field_type ) );
 }
 
 
+$("#comp-k2qivcerform").submit(function(e) {
 
-/*
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var form = $(this);
+    var url = form.attr('action');
+
+    $.ajax({
+           data: form.serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+               window.location.href = "/success-power"
+           }
+         });
 
 
-
-
-*/
+});
