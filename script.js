@@ -360,14 +360,7 @@ function outputData(parentBox){
 }
 
 function initSportOS(){
-    var isResultsPage = false;
-    var pagePath = window.location.pathname;
-    successPages.forEach(function(pages){
-        if(pages.page_url === pagePath){
-            initResultsOutput(pages.parent_box);
-            isResultsPage = true
-        }    
-    });
+    var isResultsPage = initResultsOutput(window.location.pagePath);
     if(!isResultsPage){
         initDataTracking();
     }
