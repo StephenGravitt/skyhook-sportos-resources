@@ -48,20 +48,72 @@ var inputData = [{
 
 //json array of page redirect possibilities
 var successPages = [
-    { "page_name": "acceptance", "page_url": "/success-acceptance"},
-    { "page_name": "balance", "page_url": "/success-balance"},
-    { "page_name": "body composition", "page_url": "/success-body-composition"},
-    { "page_name": "coachability", "page_url": "/success-coachability"},
-    { "page_name": "confidence", "page_url": "/success-confidence"},
-    { "page_name": "endurance", "page_url": "/success-endurance"},
-    { "page_name": "fluidity", "page_url": "/success-fluidity"},
-    { "page_name": "next", "page_url": "/success-next"},
-    { "page_name": "perserverance", "page_url": "/success-perserverance"},
-    { "page_name": "power", "page_url": "/success-power"},
-    { "page_name": "quickness", "page_url": "/success-quickness"},
-    { "page_name": "resilience", "page_url": "/success-resilience"},
-    { "page_name": "speed", "page_url": "/success-speed"}
-    ]
+	{
+	   "page_name": "acceptance",
+	   "page_url": "/success-acceptance",
+	   "parent_box": ""
+	},
+	{
+	   "page_name": "balance",
+	   "page_url": "/success-balance",
+	   "parent_box": ""
+	},
+	{
+	   "page_name": "body composition",
+	   "page_url": "/success-body-composition",
+	   "parent_box": ""
+	},
+	{
+	   "page_name": "coachability",
+	   "page_url": "/success-coachability",
+	   "parent_box": ""
+	},
+	{
+	   "page_name": "confidence",
+	   "page_url": "/success-confidence",
+	   "parent_box": "comp-k2qofn76link"
+	},
+	{
+	   "page_name": "endurance",
+	   "page_url": "/success-endurance",
+	   "parent_box": "comp-k2qoe4lglink"
+	},
+	{
+	   "page_name": "fluidity",
+	   "page_url": "/success-fluidity",
+	   "parent_box": ""
+	},
+	{
+	   "page_name": "next",
+	   "page_url": "/success-next",
+	   "parent_box": ""
+	},
+	{
+	   "page_name": "perserverance",
+	   "page_url": "/success-perserverance",
+	   "parent_box": ""
+	},
+	{
+	   "page_name": "power",
+	   "page_url": "/success-power",
+	   "parent_box": "comp-k2pdr41mlink"
+	},
+	{
+	   "page_name": "quickness",
+	   "page_url": "/success-quickness",
+	   "parent_box": "comp-k2qof0d6link"
+	},
+	{
+	   "page_name": "resilience",
+	   "page_url": "/success-resilience",
+	   "parent_box": "comp-k2qog9bllink"
+	},
+	{
+	   "page_name": "speed",
+	   "page_url": "/success-speed",
+	   "parent_box": "comp-k2nwj0gglink"
+	}
+]
 
 //generic function to set a cookie
 function setCookie(cname, cvalue, exdays) {
