@@ -288,7 +288,7 @@ function initDataTracking(){
 }
 
 //is this a pre-defined results page?
-function getOutputBox(pagePath){
+function initResultsOutput( pagePath ){
     var parentBox = false;
     for(var i = 0; i < successPages.length; i++) {
         
@@ -357,6 +357,21 @@ function outputData(parentBox){
         outputHTML += "</div><!--/.results-col.col2-->";
     outputHTML += "</div><!--#sportos-results-->";
     outputEl.innerHTML = outputHTML;
-
 }
 
+function initSportOS(){
+    var isResultsPage = false;
+    var pagePath = window.location.pathname;
+    successPages.forEach(function(pages){
+        if(pages.page_url === pagePath){
+            initResultsOutput(pages.parent_box);
+            isResultsPage = true
+        }    
+    });
+    if(!isResultsPage){
+        initDataTracking();
+    }
+}
+
+
+initSportOS();
