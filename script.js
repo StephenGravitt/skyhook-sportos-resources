@@ -126,7 +126,7 @@ function detectFieldChange ( inputID, inputType ){
         if(textField){
             
             textField.addEventListener('input', function (evt) {
-                console.log ( getFieldValue (inputID, inputType) );
+                updateData(inputID, getFieldValue (inputID, inputType));
             });
             
         }
@@ -134,7 +134,7 @@ function detectFieldChange ( inputID, inputType ){
         var selectField = document.getElementById( inputID );
         if( selectField ){
             selectField.addEventListener("change", function() {
-                console.log ( getFieldValue (inputID, inputType) );
+                updateData(inputID, getFieldValue (inputID, inputType));
             });
         }
     }else if ( inputType === "checkbox" || inputType === "radio" ){
@@ -142,14 +142,24 @@ function detectFieldChange ( inputID, inputType ){
         if( inputItems ){
             for (var i=0; inputItems.length > i; i++) {
                 inputItems[i].addEventListener("click", function() {
-                    console.log ( getFieldValue (inputID, inputType) );
+                    updateData(inputID, getFieldValue (inputID, inputType));
                 });
                 inputItems[i].addEventListener("change", function() {
-                    console.log ( getFieldValue (inputID, inputType) );
+                    updateData(inputID, getFieldValue (inputID, inputType));
+                   
                 });
             }
         }
     }
+}
+
+function updateData(inputID, inputValue){
+    for(var i = 0; i < inputData.length; i++) {
+        if ( inputData[i].field_id === inputID ){
+            inputData[i].value = inputValue;
+        }
+    }
+    setCookie('inputData',JSON.stringify(inputData),1);
 }
 
 for(var i = 0; i < inputData.length; i++) {
