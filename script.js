@@ -167,7 +167,7 @@ function getFieldValue (inputID, inputType){
                 }
             }
         }
-        if(checkVals){
+        if(checkVals.length > 0){
             return checkVals;
         } else{
             return false;
