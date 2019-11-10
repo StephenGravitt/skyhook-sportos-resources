@@ -364,6 +364,7 @@ function outputData(parentBox){
 }
 
 function initSportOS(){
+    console.log('wix rendered, loading sportos');
     var isResultsPage = initResultsOutput( window.location.pathname );
     if(!isResultsPage){
         initDataTracking();
@@ -373,6 +374,15 @@ function initSportOS(){
 function loadTestData(){
     setCookie('inputData',"[{\"field_name\":\"age\",\"field_id\":\"comp-k2qjgqegcollection\",\"field_type\":\"select\",\"value\":\"30+\"},{\"field_name\":\"gender\",\"field_id\":\"comp-k2nqpuilcollection\",\"field_type\":\"select\",\"value\":\"MALE\"},{\"field_name\":\"location\",\"field_id\":\"comp-k2nqy2hbinput\",\"field_type\":\"text\",\"value\":\"Crescent City, CA\"},{\"field_name\":\"relationship\",\"field_id\":\"comp-k2qjlhgecollection\",\"field_type\":\"select\",\"value\":\"Vertical athlete\"},{\"field_name\":\"focus\",\"field_id\":\"comp-k2qepdz6\",\"field_type\":\"checkbox\",\"value\":[\"FOOTBAL / SOCCER\",\"US SPORTS\",\"OTHER\"]},{\"field_name\":\"goals\",\"field_id\":\"comp-k2nta64ztextarea\",\"field_type\":\"text\",\"value\":\"Pizza and Donuts\"},{\"field_name\":\"motivation\",\"field_id\":\"comp-k2ntedsmtextarea\",\"field_type\":\"text\",\"value\":\"See Goals\"},{\"field_name\":\"values\",\"field_id\":\"comp-k2qh1frq\",\"field_type\":\"checkbox\",\"value\":[\"Determination\",\"Ambition\",\"Integrity\",\"Leadership\",\"Expression\",\"Achievement\"]},{\"field_name\":\"attribute\",\"field_id\":\"comp-k2qj5t61\",\"field_type\":\"radio\",\"value\":\"speed\"}]", 1);
 }
-initSportOS();
 
+function isRendered(){
+    if( document.getElementById("comp-k2s91jvplink").getAttribute("target") ==- "_blank" ){
+        initSportOS();
+        clearInterval(checkRendered);
+    }else{
+        console.log('wix not yet rendered, waiting to load sportos');
+    }
+
+}
+var checkRendered = setInterval(isRendered, 500);
 
