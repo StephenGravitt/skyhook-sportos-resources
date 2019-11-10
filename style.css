@@ -1,11 +1,6 @@
 #comp-k2qun8r1{
 	display:none;
 }
-
-
-
-
-
 #comp-k2qofn76link,
 #comp-k2qoe4lglink,
 #comp-k2pdr41mlink,
@@ -13,4 +8,29 @@
 #comp-k2qog9bllink,
 #comp-k2nwj0gglink{
 	visibility:hidden;
+}
+
+
+#comp-k2ru4y04:not(.rendered):before{
+	content:"";
+	width: 100%;
+	height: 100%;
+	background-image:url(https://static.wixstatic.com/shapes/c68a95_e2262e193d424672bb6dbe7914e72181.svg);
+	animation-name: spin;
+	background-size:100px 100px;
+	background-position:center center;
+	background-repeat: no-repeat;
+	display: block;
+	position: absolute;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	transform: rotate(1deg);
+}
+
+@keyframes spin{
+	0%{
+		transform: rotate(90deg);
+	}100%{
+		transform: rotate(450deg);
+	}
 }

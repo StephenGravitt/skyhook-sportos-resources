@@ -314,6 +314,7 @@ function outputData(parentBox){
         outputEl.removeAttribute(outputEl.attributes[0].name);
     }
     outputEl.setAttribute("id",parentBox);
+    outputEl.classList.add("rendered");
     var cookieData = JSON.parse(getCookie('inputData'));
     var outputHTML = "";
     outputHTML += "<div id=\"sportos-results\">";
@@ -376,7 +377,7 @@ function loadTestData(){
 }
 
 function isRendered(){
-    if( document.getElementById("comp-k2s91jvplink").getAttribute("target") ==- "_blank" ){
+    if( document.getElementById("comp-k2s91jvplink").getAttribute("target") === "_blank" ){
         initSportOS();
         clearInterval(checkRendered);
     }else{
