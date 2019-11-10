@@ -228,14 +228,16 @@ function detectFieldChange ( inputID, inputType ){
 
 //function to update the cookie that stores input data
 function updateData(inputID, inputValue){
-    for(var i = 0; i < inputData.length; i++) {
-        if ( inputData[i].field_id === inputID && inputValue ){
-            inputData[i].value = inputValue;
-            console.log( "UPDATING: field name: " + inputData[i].field_name + " | field value: " + inputData[i].value);
+    var cookieData = JSON.parse(getCookie('inputData'));
+    
+    for(var i = 0; i < cookieData.length; i++) {
+        if ( cookieData[i].field_id === inputID && inputValue ){
+            cookieData[i].value = inputValue;
+            console.log( "UPDATING: field name: " + cookieData[i].field_name + " | field value: " + cookieData[i].value);
+            break;
         }
     }
-    setCookie('inputData',JSON.stringify(inputData),1);
-    
+    setCookie('inputData',JSON.stringify(cookieData),1);
 }
 
 //change final form redirect behavior
@@ -243,7 +245,7 @@ function changeFormRedirect(){
     //check to see if form 2 exists before doing form 2 tasks
     if (document.getElementById("comp-k2qivcerform")){
         
-        console.log('update form 2 redirection');
+        console.log('updating form 2 redirection');
    
         $("#comp-k2qivcerform").submit(function(e) {
             //grab collective form data
