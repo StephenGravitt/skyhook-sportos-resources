@@ -3,8 +3,13 @@
 }
 
 
-
-#comp-k2ru4y04:not(.rendered):before{
+#comp-k2ru4y04:not(.rendered):before,
+#comp-k2qofn76:not(.rendered):before,
+#comp-k2qoe4lg:not(.rendered):before,
+#comp-k2pdr41m:not(.rendered):before,
+#comp-k2qof0d6:not(.rendered):before,
+#comp-k2qog9bl:not(.rendered):before,
+#comp-k2nwj0gg:not(.rendered):before{
 	content:"";
 	width: 100%;
 	height: 100%;
