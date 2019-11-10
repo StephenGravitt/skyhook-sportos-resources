@@ -247,6 +247,7 @@ function changeFormRedirect(){
         
         //verify form data was received correctly
         if( updatedData ){
+            console.log('update form 2 redirection');
             e.preventDefault();
             var form = $(this);
             
@@ -281,9 +282,13 @@ function changeFormRedirect(){
 
 //start watching all form fields we're tracking, load initial values seen on page (as this code loads at page footer)
 function initDataTracking(){
+    console.log('start tracking field changes');
     for(var i = 0; i < inputData.length; i++) {
         detectFieldChange ( inputData[i].field_id, inputData[i].field_type );
     }
+    
+    changeFormRedirect();
+    
 }
 
 //is this a pre-defined results page?
