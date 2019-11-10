@@ -228,7 +228,17 @@ function detectFieldChange ( inputID, inputType ){
 
 //function to update the cookie that stores input data
 function updateData(inputID, inputValue){
-    var cookieData = JSON.parse(getCookie('inputData'));
+    var 
+    var cookieData = getCookie('inputData');
+
+    if(!cookieData){
+        //if cookie has not been set yet, load default json
+        setCookie('inputData',inputData,1);
+        cookieData = inputData;
+    }else{
+        //parse cookie data as JSON
+        cookieData = JSON.parse(cookieData);
+    }
     
     for(var i = 0; i < cookieData.length; i++) {
         if ( cookieData[i].field_id === inputID && inputValue ){
