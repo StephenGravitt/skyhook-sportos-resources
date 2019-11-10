@@ -71,12 +71,12 @@ var successPages = [
 	{
 	   "page_name": "confidence",
 	   "page_url": "/success-confidence",
-	   "parent_box": "comp-k2qofn76link"
+	   "parent_box": "comp-k2qofn76"
 	},
 	{
 	   "page_name": "endurance",
 	   "page_url": "/success-endurance",
-	   "parent_box": "comp-k2qoe4lglink"
+	   "parent_box": "comp-k2qoe4lg"
 	},
 	{
 	   "page_name": "fluidity",
@@ -96,12 +96,12 @@ var successPages = [
 	{
 	   "page_name": "power",
 	   "page_url": "/success-power",
-	   "parent_box": "comp-k2pdr41mlink"
+	   "parent_box": "comp-k2pdr41m"
 	},
 	{
 	   "page_name": "quickness",
 	   "page_url": "/success-quickness",
-	   "parent_box": "comp-k2qof0d6link"
+	   "parent_box": "comp-k2qof0d6"
 	},
 	{
 	   "page_name": "resilience",
@@ -110,7 +110,7 @@ var successPages = [
 	},
 	{
 	   "page_name": "speed",
-	   "page_url": "/success-test",
+	   "page_url": "/success-speed",
 	   "parent_box": "comp-k2ru4y04"
 	}
 ]
