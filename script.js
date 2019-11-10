@@ -228,7 +228,7 @@ function detectFieldChange ( inputID, inputType ){
 
 //function to update the cookie that stores input data
 function updateData(inputID, inputValue){
-    var 
+    
     var cookieData = getCookie('inputData');
 
     if(!cookieData){
