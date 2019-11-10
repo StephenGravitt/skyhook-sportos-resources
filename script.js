@@ -240,44 +240,46 @@ function updateData(inputID, inputValue){
 
 //change final form redirect behavior
 function changeFormRedirect(){
-
-    $("#comp-k2qivcerform").submit(function(e) {
-        //grab collective form data
-        var updatedData = JSON.parse(getCookie('inputData'));
+    //check to see if form 2 exists before doing form 2 tasks
+    if (document.getElementById("comp-k2qivcerform")){
         
-        //verify form data was received correctly
-        if( updatedData ){
-            console.log('update form 2 redirection');
-            e.preventDefault();
-            var form = $(this);
+        console.log('update form 2 redirection');
+   
+        $("#comp-k2qivcerform").submit(function(e) {
+            //grab collective form data
+            var cookieData = JSON.parse(getCookie('inputData'));
             
-            var redirectPage
-            //verify the most valuable attribute
-            updatedData.forEach(function(inputField){
-                if(inputField.field_name == 'attribute'){
-                    redirectPage = inputField.value;
-                }
+            //verify form data was received correctly
+            if( cookieData ){
+                console.log('update form 2 redirection');
+                e.preventDefault();
+                var form = $(this);
                 
-            });
-            var redirectURL
-            //grab the correct page_url for redirection based on selection
-            successPages.forEach(function(pages){
-                if(pages.page_name === redirectPage){
-                    redirectURL = pages.page_url;
-                }    
-            });
-            console.log(redirectURL);
-            //default to speed page if somehow we've failed to get the proper page.
-            if(!redirectURL){redirectURL = "/success-speed" };
-    
-            $.ajax({
-                data: form.serialize(), // serializes the form's elements.
-                success: function(data){
-                    window.location.href = redirectURL;
-                }
-            });
-        }
-    });
+                //confirm selected value attribute which dictates redirect page
+                var redirectPage
+                redirectPage = getValueByName( cookieData , "attribute" );
+                
+                //grab the correct page_url for redirection based on selection
+                var redirectURL
+                successPages.forEach(function(pages){
+                    if(pages.page_name === redirectPage){
+                        redirectURL = pages.page_url;
+                    }    
+                });
+                console.log(redirectURL);
+                //default to speed page if somehow we've failed to get the proper page.
+                if(!redirectURL){redirectURL = "/success-speed" };
+                
+                //submit via ajax and force updated redirect upon successful submission
+                $.ajax({
+                    data: form.serialize(),
+                    success: function(data){
+                        window.location.href = redirectURL;
+                    }
+                });
+            }
+        });
+    }
 }
 
 //start watching all form fields we're tracking, load initial values seen on page (as this code loads at page footer)
