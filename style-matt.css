@@ -252,3 +252,90 @@ input.style-k2qh1i5gcheckboxinput:active ~ div.style-k2qh1i5gcheckboxcheckmark {
 .style-k2qjaf1tradioButtoncontainer:hover .style-k2qjaf1tradioButtoncircle-shadow .style-k2qjaf1tradioButtoncircle, .style-k2qjaf1tradioButtoncontainer[data-preview~="hover"] .style-k2qjaf1tradioButtoncircle-shadow .style-k2qjaf1tradioButtoncircle {
     background-color: #707070;
 }
+
+/* ==================================
+*  Tooltip text for checkboxes
+*  =============================== */
+span[class*="checkboxtext"]::after,
+div[class*="radioButtontext"]::after {
+    text-transform: none;
+    padding-top: 10px;
+    display: none;
+}
+
+div[class*="checkbox_with-label"]:hover span[class*="checkboxtext"]::after,
+div[class*="radioButton_left-direction"]:hover div[class*="radioButtontext"]::after {
+    display: block;
+}
+/* Checkboxes on page 1 of form */
+#comp-k2qh1frqcheckbox0text::after {
+    content: 'A firm or fixed intention to achieve a desired outcome without giving up.';
+}
+
+#comp-k2qh1frqcheckbox1text::after {
+    content: 'A strong desire to do or to achieve something.';
+}
+
+#comp-k2qh1frqcheckbox2text::after {
+    content: 'Honesty and having strong moral principles.';
+}
+
+#comp-k2qh1frqcheckbox3text::after {
+    content: 'An influential role within a group of people or an organization.';
+}
+
+#comp-k2qh1frqcheckbox4text::after {
+    content: 'Representing individuality through words, art, symbols, movement, etc.';
+}
+
+#comp-k2qh1frqcheckbox5text::after {
+    content: 'Attaining successful results gained by effort, courage and/or skill.';
+}
+/* Radio buttons on page 2 of form */
+#comp-k2qj5t61radio0text::after {
+    content: 'Do we have content for this?';
+}
+
+#comp-k2qj5t61radio1text::after {
+    content: 'Do we have content for this?';
+}
+
+#comp-k2qj5t61radio2text::after {
+    content: 'Do we have content for this?';
+}
+
+#comp-k2qj5t61radio3text::after {
+    content: 'Do we have content for this?';
+}
+
+#comp-k2qj5t61radio4text::after {
+    content: 'Do we have content for this?';
+}
+
+#comp-k2qj5t61radio5text::after {
+    content: 'Do we have content for this?';
+}
+
+#comp-k2qj5t61radio6text::after {
+    content: 'Do we have content for this?';
+}
+
+#comp-k2qj5t61radio7text::after {
+    content: 'Do we have content for this?';
+}
+
+#comp-k2qj5t61radio8text::after {
+    content: 'Do we have content for this?';
+}
+
+#comp-k2qj5t61radio9text::after {
+    content: 'Do we have content for this?';
+}
+
+#comp-k2qj5t61radio10text::after {
+    content: 'Do we have content for this?';
+}
+
+#comp-k2qj5t61radio11text::after {
+    content: 'Do we have content for this?';
+}
