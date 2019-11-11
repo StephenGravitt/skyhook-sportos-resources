@@ -96,17 +96,19 @@
 /* Custom tooltips */
 .tool-tip-container {
     position: relative;
+    height: 30px;
 }
 
 .col2 .sportos-block .tool-tip-container:hover .tool-tip-inner {
-    display: block;
+    display: inline-block;
 }
 
 .col2 .sportos-block .tool-tip-container .tool-tip-inner {
     display: none;
     position: absolute;
-    top: -16px;
-    left: 36px;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 200px;
     background: #999;
     padding: 20px;
@@ -114,13 +116,12 @@
 }
 
     .col2 .sportos-block .tool-tip-container .tool-tip-inner:before {
-        border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent;
-        border-right: 10px solid #999;
         content: "";
+        border-color: #999 transparent transparent transparent;
         position: absolute;
-        left: -10px;
-        top: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 100%;
     }
 
 
