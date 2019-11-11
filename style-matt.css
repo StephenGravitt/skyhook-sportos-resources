@@ -1,3 +1,109 @@
+/* ==================================
+*  Success pages
+*  =============================== */
+#sportos-results {
+    border: 2px dashed white;
+    padding: 30px;
+    color: white;
+    display: flex;
+    width: 940px;
+}
+
+.results-col.col1 {
+    padding-right: 20px;
+    min-width: 440px;
+}
+
+.gender-relationship {
+    font-family: poppins-semibold, poppins, sans-serif;
+    text-transform: uppercase;
+    font-size: 36px;
+    line-height: 1.4;
+    padding-bottom: 20px;
+}
+
+.age-location {
+    font: normal normal normal 28px/1.4em wfont_b42ed2_a83f8c519d414abdbdb0d73c9aa9e357,wf_a83f8c519d414abdbdb0d73c9,orig_adihausdin_cn;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    display: flex;
+}
+
+    .age-location h3 {
+        padding-right: 20px;
+    }
+
+.focus {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sportos-focus-item {
+    width: 120px;
+    height: 120px;
+    border: 1px solid white;
+    font-size: 15px;
+    text-align: center;
+    margin: 0 20px 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.col2 .sportos-block {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+    .col2 .sportos-block h3 {
+        font: normal normal normal 28px/1.4em wfont_b42ed2_a83f8c519d414abdbdb0d73c9aa9e357,wf_a83f8c519d414abdbdb0d73c9,orig_adihausdin_cn;
+        text-transform: uppercase;
+        text-align: right;
+        width: 120px;
+        padding-right: 10px;
+    }
+
+.col2 h3.sportos-label {
+    min-width: 120px;
+}
+
+.col2 .sportos-block .tool-tip-container {
+    padding-right: 10px;
+}
+
+    .col2 .sportos-block .tool-tip-container .tool-tip-inner {
+        position: absolute;
+        display: none; /* for now */
+    }
+
+.col2 .sportos-value {
+    font-size: 15px;
+}
+
+.sportos-values-item {
+    cursor: pointer;
+    color: #707070;
+    background-color: white;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    font: normal normal normal 16px/1.4em wfont_b42ed2_a83f8c519d414abdbdb0d73c9aa9e357,wf_a83f8c519d414abdbdb0d73c9,orig_adihausdin_cn;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: all .2s;
+}
+
+    .sportos-values-item:hover {
+        color: white;
+        background-color: rgba(212, 212, 212, 1);
+    }
+
+
+
+/* ==================================
+*  Other pages
+*  =============================== */
+
 /* The container for the checkboxes     */
 /* Note: Wix creates unique class names  /
 /        for each form element          */
