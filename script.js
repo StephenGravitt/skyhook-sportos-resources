@@ -94,7 +94,7 @@ var successPages = [
 	   "parent_box": ""
 	},
 	{
-	   "page_name": "power",
+	   "page_name": "power and strength",
 	   "page_url": "/success-power",
 	   "parent_box": "comp-k2pdr41m"
 	},
