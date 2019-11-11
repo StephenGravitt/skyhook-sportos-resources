@@ -71,11 +71,6 @@
     padding-right: 10px;
 }
 
-    .col2 .sportos-block .tool-tip-container .tool-tip-inner {
-        position: absolute;
-        display: none; /* for now */
-    }
-
 .col2 .sportos-value {
     font-size: 15px;
 }
@@ -98,6 +93,42 @@
         background-color: rgba(212, 212, 212, 1);
     }
 
+/* Custom tooltips */
+.tool-tip-container {
+    position: relative;
+    display: inline-block;
+}
+
+.tool-tip-inner {
+    visibility: hidden;
+    width: 200px;
+    width: max-content;
+    max-width: 200px;
+    background-color: #404040;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+    .tool-tip-inner::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #404040 transparent transparent transparent;
+    }
+
+.tool-tip-container:hover .tool-tip-inner {
+    visibility: visible;
+}
 
 
 /* ==================================
