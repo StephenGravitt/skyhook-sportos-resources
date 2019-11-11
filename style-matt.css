@@ -3,7 +3,7 @@
 *  =============================== */
 #sportos-results {
     border: 2px dashed white;
-    padding: 30px;
+    padding: 30px 30px 20px 30px;
     color: white;
     display: flex;
     width: 940px;
@@ -103,6 +103,8 @@
 }
 
 .col2 .sportos-block .tool-tip-container .tool-tip-inner {
+    display: none;
+    position: absolute;
     top: -16px;
     left: 36px;
     width: 200px;
