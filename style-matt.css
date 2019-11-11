@@ -108,6 +108,7 @@
     position: absolute;
     bottom: 40px;
     left: 50%;
+    top: unset;
     transform: translateX(-50%);
     width: 200px;
     background: #999;
