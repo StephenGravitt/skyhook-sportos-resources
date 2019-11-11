@@ -96,39 +96,30 @@
 /* Custom tooltips */
 .tool-tip-container {
     position: relative;
-    display: inline-block;
 }
 
-.tool-tip-inner {
-    visibility: hidden;
+.col2 .sportos-block .tool-tip-container:hover .tool-tip-inner {
+    display: block;
+}
+
+.col2 .sportos-block .tool-tip-container .tool-tip-inner {
+    top: -16px;
+    left: 36px;
     width: 200px;
-    width: max-content;
-    max-width: 200px;
-    background-color: #404040;
-    color: #fff;
-    text-align: center;
-    padding: 5px;
-    position: absolute;
-    z-index: 1;
-    bottom: 150%;
-    left: 50%;
-    transform: translateX(-50%);
+    background: #999;
+    padding: 20px;
+    font-size: 13px;
 }
 
-    .tool-tip-inner::after {
+    .col2 .sportos-block .tool-tip-container .tool-tip-inner:before {
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 10px solid #999;
         content: "";
         position: absolute;
-        top: 100%;
-        left: 50%;
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: #404040 transparent transparent transparent;
+        left: -10px;
+        top: 16px;
     }
-
-.tool-tip-container:hover .tool-tip-inner {
-    visibility: visible;
-}
 
 
 /* ==================================
