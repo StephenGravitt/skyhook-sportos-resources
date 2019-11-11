@@ -367,7 +367,7 @@ function outputData(parentBox){
                 outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>Here is some tooltip</p></div></div>";
                 outputHTML += "<p class=\"motivation sportos-value\">" + getValueByName(cookieData, "motivation") + "</p>";
             outputHTML += "</div><!--/.sportos-block.motivation-->";
-            outputHTML += "<div class=\"sportos-block.values\">";
+            outputHTML += "<div class=\"sportos-block values\">";
                 var valueVals = new Array;
                 valueVals = getValueByName(cookieData, "values");
                 outputHTML += "<h3 class=\"values sportos-label\">Values</h3>";
