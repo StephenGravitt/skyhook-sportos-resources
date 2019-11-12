@@ -266,7 +266,7 @@ input.style-k2qh1i5gcheckboxinput:active ~ div.style-k2qh1i5gcheckboxcheckmark {
 span[class*="checkboxtext"]::after,
 div[class*="radioButtontext"]::after {
     text-transform: none;
-    padding-top: 10px;
+    padding: 10px;
     display: none;
 }
 
@@ -298,51 +298,52 @@ div[class*="radioButton_left-direction"]:hover div[class*="radioButtontext"]::af
 #comp-k2qh1frqcheckbox5text::after {
     content: 'Attaining successful results gained by effort, courage and/or skill.';
 }
+
 /* Radio buttons on page 2 of form */
 #comp-k2qj5t61radio0text::after {
-    content: 'Do we have content for this?';
+    content: 'Ability to apply force at a high rate of speed at any instant moving from one position to another.';
 }
 
 #comp-k2qj5t61radio1text::after {
-    content: 'Do we have content for this?';
+    content: 'Ability to cover distances in a straight line fast.';
 }
 
 #comp-k2qj5t61radio2text::after {
-    content: 'Do we have content for this?';
+    content: 'Ability to gather, deliver, store and utilize oxygen to produce sustained physical activity.';
 }
 
 #comp-k2qj5t61radio3text::after {
-    content: 'Do we have content for this?';
+    content: 'Ability to move quickly in a variety of directions.';
 }
 
 #comp-k2qj5t61radio4text::after {
-    content: 'Do we have content for this?';
+    content: 'Ability to improve movement quality and manage pain and withstand injury potential.';
 }
 
 #comp-k2qj5t61radio5text::after {
-    content: 'Do we have content for this?';
+    content: 'Ability to gain muscle mass or lose body fat.';
 }
 
 #comp-k2qj5t61radio6text::after {
-    content: 'Do we have content for this?';
+    content: "The ability to perceive and achieve a future outcome based on one's sense of capacity to handle challenge.";
 }
 
 #comp-k2qj5t61radio7text::after {
-    content: 'Do we have content for this?';
+    content: 'Ability to sustain committed actions aligned to values and goals while withstanding the impact of adversity and delayed gratification.';
 }
 
 #comp-k2qj5t61radio8text::after {
-    content: 'Do we have content for this?';
+    content: 'Ability to maintain healthy management between family, work, self-care demands.';
 }
 
 #comp-k2qj5t61radio9text::after {
-    content: 'Do we have content for this?';
+    content: 'Ability to meet the mental and physical demands of challenges as they come.';
 }
 
 #comp-k2qj5t61radio10text::after {
-    content: 'Do we have content for this?';
+    content: "Ability to accept one's role, stay open to learning, with willingness to adapt and trust the coach."'";
 }
 
 #comp-k2qj5t61radio11text::after {
-    content: 'Do we have content for this?';
+    content: 'Ability to cultivate and maintain openness to both positive and negative experiences.';
 }
