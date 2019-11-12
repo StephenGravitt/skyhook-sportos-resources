@@ -329,10 +329,10 @@ function getValueByName(jsonArray, field_name){
 
 function outputData(parentBox){
     var outputEl = document.getElementById(parentBox);
-    while(outputEl.attributes.length > 0){
+    /* while(outputEl.attributes.length > 0){
         outputEl.removeAttribute(outputEl.attributes[0].name);
     }
-    outputEl.setAttribute("id",parentBox);
+    outputEl.setAttribute("id",parentBox); */
     outputEl.classList.add("rendered");
     var cookieData = JSON.parse(getCookie('inputData'));
     var outputHTML = "";
