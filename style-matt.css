@@ -111,18 +111,25 @@
     top: unset;
     transform: translateX(-50%);
     width: 200px;
-    background: #999;
+    background: lightgray;
     padding: 20px;
     font-size: 13px;
+    color: black;
 }
 
     .col2 .sportos-block .tool-tip-container .tool-tip-inner:before {
         content: "";
-        border-color: #999 transparent transparent transparent;
+        border-color: #d3d3d3 transparent;
+        border-style: solid;
+        border-width: 10px 10px 0px 20px;
         position: absolute;
-        left: 50%;
+        left: 48%;
         transform: translateX(-50%);
         top: 100%;
+        width: 0px;
+        height: 0px;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
     }
 
 
