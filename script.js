@@ -106,7 +106,7 @@ var successPages = [
 	{
 	   "page_name": "resilience",
 	   "page_url": "/success-resilience",
-	   "parent_box": "comp-k2qog9bl";
+	   "parent_box": "comp-k2qog9bl",
 	},
 	{
 	   "page_name": "speed",
