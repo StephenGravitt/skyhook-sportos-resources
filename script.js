@@ -359,19 +359,19 @@ function outputData(parentBox){
         outputHTML += "<div class=\"results-col col2\">";
             outputHTML += "<div class=\"sportos-block goals\">";
                 outputHTML += "<h3 class=\"goals sportos-label\">Goals</h3>";
-                outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>Here is some tooltip</p></div></div>";
+                outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>Driven by motivation and shaped by values, goals are targeted, desired results.</p></div></div>";
                 outputHTML += "<p class=\"goals sportos-value\">" + getValueByName(cookieData, "goals") + "</p>";
             outputHTML += "</div><!--/.sportos-block.goals-->";
             outputHTML += "<div class=\"sportos-block motivation\">";
                 outputHTML += "<h3 class=\"motivation sportos-label\">Motivation</h3>";
-                outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>Here is some tooltip</p></div></div>";
+                outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>Underpinned by values, motivation is the combination of desires, reasons, and needs that drive an athlete to set goals and upgrade behaviors.</p></div></div>";
                 outputHTML += "<p class=\"motivation sportos-value\">" + getValueByName(cookieData, "motivation") + "</p>";
             outputHTML += "</div><!--/.sportos-block.motivation-->";
             outputHTML += "<div class=\"sportos-block values\">";
                 var valueVals = new Array;
                 valueVals = getValueByName(cookieData, "values");
                 outputHTML += "<h3 class=\"values sportos-label\">Values</h3>";
-                outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>Here is some tooltip</p></div></div>";
+                outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>The athlete’s most important and cherished ideals, values are at the core of what drives the desire to set goals and create positive change.</p></div></div>";
                 outputHTML += "<div class=\"values sportos-value\">";
                 for ( i=0 ; valueVals.length > i ; i++){
                     outputHTML += "<div class=\"sportos-values-item\" >" + valueVals[i] + "</div>";
