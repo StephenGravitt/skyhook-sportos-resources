@@ -1,4 +1,12 @@
 /* ==================================
+*  Menu (Lightbox)
+*  =============================== */
+#comp-k2p07gzeinlineContent a:hover,
+#comp-k2p07gzeinlineContent a:active {
+    color: black;
+}
+
+/* ==================================
 *  Success pages
 *  =============================== */
 #sportos-results {
@@ -341,7 +349,7 @@ div[class*="radioButton_left-direction"]:hover div[class*="radioButtontext"]::af
 }
 
 #comp-k2qj5t61radio10text::after {
-    content: "Ability to accept one's role, stay open to learning, with willingness to adapt and trust the coach."'";
+    content: "Ability to accept one's role, stay open to learning, with willingness to adapt and trust the coach.";
 }
 
 #comp-k2qj5t61radio11text::after {
