@@ -162,8 +162,8 @@
 }
 /* Radiobuttons get their own padding & sizing */
 .style-k2qjaf1tradioButton {
-    padding-right: 20px;
-    padding-bottom: 40px;
+    margin-right: 40px !important;
+    margin-bottom: 30px;
 }
 
 .style-k2qjaf1titems > * {
