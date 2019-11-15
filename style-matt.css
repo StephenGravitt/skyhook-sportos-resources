@@ -276,6 +276,8 @@ div[class*="radioButtontext"]::after {
     text-transform: none;
     padding: 10px;
     display: none;
+    font-size: 16px;
+    margin-top: -10px;
 }
 
 div[class*="checkbox_with-label"]:hover span[class*="checkboxtext"]::after,
@@ -287,11 +289,7 @@ div[class*="checkbox_with-label"]:hover span[class*="checkboxtext"],
 div[class*="radioButton_left-direction"]:hover div[class*="radioButtontext"] {
     font-size: 0;
 }
-    /* ...but keep the descriptive text */
-    div[class*="checkbox_with-label"]:hover span[class*="checkboxtext"]::after,
-    div[class*="radioButton_left-direction"]:hover div[class*="radioButtontext"]::after {
-        font-size: 16px;
-    }
+
 /* Checkboxes on page 1 of form */
 #comp-k2qh1frqcheckbox0text::after {
     content: 'A firm or fixed intention to achieve a desired outcome without giving up.';
