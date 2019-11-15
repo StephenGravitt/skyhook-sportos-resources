@@ -157,8 +157,8 @@
 
 .style-k2qetugmcheckbox_with-label,
 .style-k2qh1i5gcheckbox_with-label {
-    padding-right: 40px;
-    padding-bottom: 30px;
+    margin-right: 40px;
+    margin-bottom: 40px !important;
 }
 /* Radiobuttons get their own padding & sizing */
 .style-k2qjaf1tradioButton {
