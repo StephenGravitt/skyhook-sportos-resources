@@ -333,33 +333,9 @@ div[class*="radioButton_left-direction"]:hover div[class*="radioButtontext"] {
 }
 
 #comp-k2qj5t61radio4text::after {
-    content: 'Ability to improve movement quality and manage pain and withstand injury potential.';
+    content: "The ability to perceive and achieve a future outcome based on one's sense of capacity to handle challenge";
 }
 
 #comp-k2qj5t61radio5text::after {
-    content: 'Ability to gain muscle mass or lose body fat.';
-}
-
-#comp-k2qj5t61radio6text::after {
-    content: "The ability to perceive and achieve a future outcome based on one's sense of capacity to handle challenge.";
-}
-
-#comp-k2qj5t61radio7text::after {
-    content: 'Ability to sustain committed actions aligned to values and goals while withstanding the impact of adversity and delayed gratification.';
-}
-
-#comp-k2qj5t61radio8text::after {
-    content: 'Ability to maintain healthy management between family, work, self-care demands.';
-}
-
-#comp-k2qj5t61radio9text::after {
     content: 'Ability to meet the mental and physical demands of challenges as they come.';
-}
-
-#comp-k2qj5t61radio10text::after {
-    content: "Ability to accept one's role, stay open to learning, with willingness to adapt and trust the coach.";
-}
-
-#comp-k2qj5t61radio11text::after {
-    content: 'Ability to cultivate and maintain openness to both positive and negative experiences.';
 }
