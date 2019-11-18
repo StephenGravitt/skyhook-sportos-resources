@@ -350,7 +350,8 @@ function checkUrlParams(){
             if(urlData.constructor === "isString?".constructor){
                 urlData = JSON.parse(urlData);
             }
-            setCookie("inputData",JSON.parse(decodeURIComponent(urlData)));
+            setCookie("inputData",urlData));
+            console.log(urldata);
         }
     }else{
         cookieData = getCookie("inputData");
