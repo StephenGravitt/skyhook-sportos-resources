@@ -350,7 +350,7 @@ function checkUrlParams(){
             if(urlData.constructor === "isString?".constructor){
                 urlData = JSON.parse(urlData);
             }
-            setCookie("inputData",urlData);
+            setCookie("inputData",JSON.stringify(urlData));
             console.log(urlData);
         }
     }else{
@@ -375,11 +375,6 @@ function outputData(parentBox){
     outputEl.setAttribute("id",parentBox); */
     outputEl.classList.add("rendered");
     var cookieData = JSON.parse(getCookie('inputData'));
-
-    //verify if string and try to re-parse, double stringification happening with escaped url params
-    if(cookieData.constructor === "isString?".constructor){
-        cookieData = JSON.parse(cookieData);
-    }
 
     if(cookieData){
         var outputHTML = "";
