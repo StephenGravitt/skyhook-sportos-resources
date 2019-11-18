@@ -41,6 +41,13 @@
         padding-right: 20px;
     }
 
+h3.sport-age-label {
+    margin-left: -10px;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+
+
 .focus {
     display: flex;
     flex-wrap: wrap;
