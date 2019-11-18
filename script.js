@@ -51,7 +51,7 @@ var successPages = [
 	{
 	   "page_name": "acceptance",
 	   "page_url": "/success-acceptance",
-	   "parent_box": ""
+       "parent_box": ""
 	},
 	{
 	   "page_name": "balance",
@@ -71,12 +71,14 @@ var successPages = [
 	{
 	   "page_name": "confidence",
 	   "page_url": "/success-confidence",
-	   "parent_box": "comp-k2qofn76"
+	   "parent_box": "comp-k2qofn76",
+       "share_button": "comp-k2qofq2blabel"
 	},
 	{
 	   "page_name": "endurance",
 	   "page_url": "/success-endurance",
-	   "parent_box": "comp-k2qoe4lg"
+	   "parent_box": "comp-k2qoe4lg",
+       "share_button": "comp-k2qoe78mlink"
 	},
 	{
 	   "page_name": "fluidity",
@@ -96,22 +98,26 @@ var successPages = [
 	{
 	   "page_name": "power and strength",
 	   "page_url": "/success-power",
-	   "parent_box": "comp-k2pdr41m"
+	   "parent_box": "comp-k2pdr41m",
+       "share_button": "comp-k2ru50aslabel"
 	},
 	{
 	   "page_name": "quickness",
 	   "page_url": "/success-quickness",
-	   "parent_box": "comp-k2qof0d6"
+	   "parent_box": "comp-k2qof0d6",
+       "share_button": "comp-k2qof3e7label"
 	},
 	{
 	   "page_name": "resilience",
 	   "page_url": "/success-resilience",
 	   "parent_box": "comp-k2qog9bl",
+       "share_button": "comp-k2qogcdolink"
 	},
 	{
 	   "page_name": "speed",
 	   "page_url": "/success-speed",
-	   "parent_box": "comp-k2ru4y04"
+	   "parent_box": "comp-k2ru4y04",
+       "share_button": "comp-k2ru50aslabel"
 	}
 ]
 
@@ -233,7 +239,7 @@ function updateData(inputID, inputValue){
 
     if(!cookieData){
         //if cookie has not been set yet, load default json
-        setCookie('inputData',inputData,1);
+        setCookie('inputData',JSON.stringify(inputData),1);
         cookieData = inputData;
     }else{
         //parse cookie data as JSON
@@ -308,11 +314,16 @@ function initDataTracking(){
 //is this a pre-defined results page?
 function initResultsOutput( pagePath ){
     var parentBox = false;
+    var shareButtonID;
+    
+
     for(var i = 0; i < successPages.length; i++) {
         
         if(successPages[i].page_url === pagePath){
             parentBox = successPages[i].parent_box;
+            shareButtonID = successPages[i].share_button;
             outputData(parentBox);
+            linkifyShareButton(shareButtonID);
             break;
         }
     }
@@ -383,12 +394,25 @@ function outputData(parentBox){
     outputEl.innerHTML = outputHTML;
 }
 
+function linkifyShareButton(shareButtonID){
+    var shareButton = document.getElementById(shareButtonID);
+    linkURL = "mailto:?subject=SportOS%20Results&body=" + window.location.href + "?inputData=" + encodeURIComponent(JSON.stringify(getCookie("inputData")));
+    shareButton.innerHTML = "<a href=\""+linkURL+"""\">" + shareButton.innerHTML + "</a>';
+}
+
 function initSportOS(){
     console.log('wix rendered, loading sportos');
+    //reset inputData to be blank if on first page of form, verified via age field
+    var ageField = document.getElementById("comp-k2qjgqegcollection"); 
+    if (ageField.length){
+        setCookie('inputData',JSON.stringify(inputData),1);
+    }
+
     var isResultsPage = initResultsOutput( window.location.pathname );
     if(!isResultsPage){
         initDataTracking();
     }
+    
 }
 
 function loadTestData(){
@@ -397,8 +421,9 @@ function loadTestData(){
 
 function isRendered(){
     if( document.getElementById("comp-k2s91jvplink").getAttribute("target") === "_blank" ){
-        initSportOS();
         clearInterval(checkRendered);
+        initSportOS();
+       
     }else{
         console.log('wix not yet rendered, waiting to load sportos');
     }
