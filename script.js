@@ -341,8 +341,10 @@ function getValueByName(jsonArray, field_name){
 function checkUrlParams(){
     var urlParams = new URLSearchParams( window.location.search );
     if (urlParams.has("inputData")){
+        console.log("input data found in URL, overwriting results with incoming data");
         setCookie("inputData",urlParams.get("inputData"));
     }else{
+        console.log("no input data in url, appending data in case user wishes to share url");
         urlParams.append('inputData', encodeURIComponent(JSON.stringify(getCookie("inputData"))) )
     }
 }
