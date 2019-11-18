@@ -404,7 +404,7 @@ function initSportOS(){
     console.log('wix rendered, loading sportos');
     //reset inputData to be blank if on first page of form, verified via age field
     var ageField = document.getElementById("comp-k2qjgqegcollection"); 
-    if (ageField.length){
+    if (ageField){
         console.log('resetting form data');
         setCookie('inputData',JSON.stringify(inputData),1);
     }
