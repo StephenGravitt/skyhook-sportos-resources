@@ -430,7 +430,7 @@ function outputData(parentBox){
 
 function linkifyShareButton(shareButtonID){
     var shareButton = document.getElementById(shareButtonID);
-    linkURL = "mailto:?subject=SportOS%20Results&body=" + encodeURIComponent(window.location.href + "?inputData=" + JSON.stringify(getCookie("inputData")));
+    linkURL = "mailto:?subject=SportOS%20Results&body=" + encodeURIComponent("https://www.sportos.skybox0.com" + window.location.pathname + "?inputData=" + JSON.stringify(getCookie("inputData")));
     shareButton.outerHTML = "<a target=\"blank\" href=\""+linkURL+"\">" + shareButton.outerHTML + "</a>";
  
 }
