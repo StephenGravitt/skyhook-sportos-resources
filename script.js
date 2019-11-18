@@ -344,7 +344,13 @@ function checkUrlParams(){
         urlData = urlParams.get("inputData");
         if(urlData){
             console.log("input data found in URL, overwriting results with incoming data");
-            setCookie("inputData",decodeURIComponent(urlData));
+            urlData = JSON.parse(decodeURIComponent(urlData));
+
+            //ensure data is parsable json and not a string: nested json sometimes requires twice the parsing.
+            if(urlData.constructor === "isString?".constructor){
+                urlData = JSON.parse(urlData);
+            }
+            setCookie("inputData",JSON.parse(decodeURIComponent(urlData)));
         }
     }else{
         cookieData = getCookie("inputData");
