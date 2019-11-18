@@ -397,7 +397,7 @@ function outputData(parentBox){
 function linkifyShareButton(shareButtonID){
     var shareButton = document.getElementById(shareButtonID);
     linkURL = "mailto:?subject=SportOS%20Results&body=" + window.location.href + "?inputData=" + encodeURIComponent(JSON.stringify(getCookie("inputData")));
-    shareButton.innerHTML = "<a href=\""+linkURL+"""\">" + shareButton.innerHTML + "</a>';
+    shareButton.innerHTML = "<a href=\""+linkURL+"\">" + shareButton.innerHTML + "</a>";
 }
 
 function initSportOS(){
