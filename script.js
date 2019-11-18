@@ -342,11 +342,15 @@ function checkUrlParams(){
     var urlParams = new URLSearchParams( window.location.search );
     if (urlParams.has("inputData")){
         console.log("input data found in URL, overwriting results with incoming data");
-        setCookie("inputData",urlParams.get("inputData"));
+        setCookie("inputData",decodeURIComponent(urlParams.get("inputData")));
     }else{
-        console.log("no input data in url, appending data in case user wishes to share url");
-        var urlPath = window.location.pathname + "?inputData=" + encodeURIComponent(JSON.stringify(getCookie("inputData")));
-        window.history.pushState(null,null, urlPath);
+        cookieData = getCookie("inputData");
+        if (cookieData){
+            console.log("no input data in url, appending data in case user wishes to share url");
+            var urlPath = window.location.pathname + "?inputData=" + encodeURIComponent(JSON.stringify(cookieData));
+            window.history.pushState(null,null, urlPath);
+        }
+        
     }
 }
 
