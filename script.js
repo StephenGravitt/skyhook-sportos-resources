@@ -345,7 +345,8 @@ function checkUrlParams(){
         setCookie("inputData",urlParams.get("inputData"));
     }else{
         console.log("no input data in url, appending data in case user wishes to share url");
-        urlParams.append('inputData', encodeURIComponent(JSON.stringify(getCookie("inputData"))) )
+        var urlPath = window.location.pathname + "?inputData=" + encodeURIComponent(JSON.stringify(getCookie("inputData")));
+        window.history.pushState(null,null, urlPath);
     }
 }
 
@@ -415,7 +416,7 @@ function outputData(parentBox){
 function linkifyShareButton(shareButtonID){
     var shareButton = document.getElementById(shareButtonID);
     linkURL = "mailto:?subject=SportOS%20Results&body=" + window.location.href + "?inputData=" + escape(encodeURIComponent(JSON.stringify(getCookie("inputData"))));
-    shareButton.outerHTML = "<a href=\""+linkURL+"\">" + shareButton.innerHTML + "</a>";
+    shareButton.outerHTML = "<a target=\"blank\" href=\""+linkURL+"\">" + shareButton.outerHTML + "</a>";
  
 }
 
