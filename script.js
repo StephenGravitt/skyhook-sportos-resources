@@ -385,7 +385,7 @@ function outputData(parentBox){
                     outputHTML += "<h3 class=\"sportos-relationship\" >" + getValueByName(cookieData, "relationship") + "</h3>";
                 outputHTML +="</div><!--/.gender-relationship-->"
                 outputHTML += "<div class=\"age-location sportos-block\">";
-                    outputHTML += "<h3 class=\"sportos-age\" >" + getValueByName(cookieData, "age") + "</h3>";
+                    outputHTML += "<h3 class=\"sportos-age\" >" + getValueByName(cookieData, "age") + "years old</h3>";
                     outputHTML += "<h3 class=\"sportos-location\" >" + getValueByName(cookieData, "location") + "</h3>";
                 outputHTML +="</div><!--/.age-location-->"
                 outputHTML += "<div class=\"focus sportos-block\" >";
