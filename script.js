@@ -99,7 +99,7 @@ var successPages = [
 	   "page_name": "power and strength",
 	   "page_url": "/success-power",
 	   "parent_box": "comp-k2pdr41m",
-       "share_button": "comp-k2ru50aslabel"
+       "share_button": "comp-k2pdr704label"
 	},
 	{
 	   "page_name": "quickness",
@@ -363,7 +363,9 @@ function outputData(parentBox){
     var cookieData = JSON.parse(getCookie('inputData'));
 
     //verify if string and try to re-parse, double stringification happening with escaped url params
-    if(cookieData.constructor === "isString?".constructor){cookieData = JSON.parse(cookieData);}
+    if(cookieData.constructor === "isString?".constructor){
+        cookieData = JSON.parse(cookieData);
+    }
 
     var outputHTML = "";
     outputHTML += "<div id=\"sportos-results\">";
@@ -415,7 +417,7 @@ function outputData(parentBox){
 
 function linkifyShareButton(shareButtonID){
     var shareButton = document.getElementById(shareButtonID);
-    linkURL = "mailto:?subject=SportOS%20Results&body=" + window.location.href + "?inputData=" + escape(encodeURIComponent(JSON.stringify(getCookie("inputData"))));
+    linkURL = "mailto:?subject=SportOS%20Results&body=" + encodeURIComponent(window.location.href + "?inputData=" + JSON.stringify(getCookie("inputData")));
     shareButton.outerHTML = "<a target=\"blank\" href=\""+linkURL+"\">" + shareButton.outerHTML + "</a>";
  
 }
