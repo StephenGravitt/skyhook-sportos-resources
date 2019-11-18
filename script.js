@@ -51,7 +51,7 @@ var successPages = [
 	{
 	   "page_name": "acceptance",
 	   "page_url": "/success-acceptance",
-	   "parent_box": ""
+       "parent_box": ""
 	},
 	{
 	   "page_name": "balance",
@@ -71,12 +71,14 @@ var successPages = [
 	{
 	   "page_name": "confidence",
 	   "page_url": "/success-confidence",
-	   "parent_box": "comp-k2qofn76"
+	   "parent_box": "comp-k2qofn76",
+       "share_button": "comp-k2qofq2blabel"
 	},
 	{
 	   "page_name": "endurance",
 	   "page_url": "/success-endurance",
-	   "parent_box": "comp-k2qoe4lg"
+	   "parent_box": "comp-k2qoe4lg",
+       "share_button": "comp-k2qoe78mlink"
 	},
 	{
 	   "page_name": "fluidity",
@@ -96,22 +98,26 @@ var successPages = [
 	{
 	   "page_name": "power and strength",
 	   "page_url": "/success-power",
-	   "parent_box": "comp-k2pdr41m"
+	   "parent_box": "comp-k2pdr41m",
+       "share_button": "comp-k2pdr704label"
 	},
 	{
 	   "page_name": "quickness",
 	   "page_url": "/success-quickness",
-	   "parent_box": "comp-k2qof0d6"
+	   "parent_box": "comp-k2qof0d6",
+       "share_button": "comp-k2qof3e7label"
 	},
 	{
 	   "page_name": "resilience",
 	   "page_url": "/success-resilience",
 	   "parent_box": "comp-k2qog9bl",
+       "share_button": "comp-k2qogcdolink"
 	},
 	{
 	   "page_name": "speed",
 	   "page_url": "/success-speed",
-	   "parent_box": "comp-k2ru4y04"
+	   "parent_box": "comp-k2ru4y04",
+       "share_button": "comp-k2ru50aslabel"
 	}
 ]
 
@@ -233,7 +239,7 @@ function updateData(inputID, inputValue){
 
     if(!cookieData){
         //if cookie has not been set yet, load default json
-        setCookie('inputData',inputData,1);
+        setCookie('inputData',JSON.stringify(inputData),1);
         cookieData = inputData;
     }else{
         //parse cookie data as JSON
@@ -308,11 +314,16 @@ function initDataTracking(){
 //is this a pre-defined results page?
 function initResultsOutput( pagePath ){
     var parentBox = false;
+    var shareButtonID;
+    
+
     for(var i = 0; i < successPages.length; i++) {
         
         if(successPages[i].page_url === pagePath){
             parentBox = successPages[i].parent_box;
+            shareButtonID = successPages[i].share_button;
             outputData(parentBox);
+            linkifyShareButton(shareButtonID);
             break;
         }
     }
@@ -327,7 +338,36 @@ function getValueByName(jsonArray, field_name){
     }
 }
 
+function checkUrlParams(){
+    var urlParams = new URLSearchParams( window.location.search );
+    if (urlParams.has("inputData")){
+        var urlData = urlParams.get("inputData");
+        if(urlData){
+            console.log("input data found in URL, overwriting results with incoming data");
+            urlData = JSON.parse(decodeURIComponent(urlData));
+
+            //ensure data is parsable json and not a string: nested json sometimes requires twice the parsing.
+            if(urlData.constructor === "isString?".constructor){
+                urlData = JSON.parse(urlData);
+            }
+            setCookie("inputData",JSON.stringify(urlData));
+            console.log(urlData);
+        }
+    }else{
+        cookieData = getCookie("inputData");
+        if (cookieData){
+            console.log("no input data in url, appending data in case user wishes to share url");
+            var urlPath = window.location.pathname + "?inputData=" + encodeURIComponent(JSON.stringify(cookieData));
+            window.history.pushState(null,null, urlPath);
+        }
+        
+    }
+}
+
 function outputData(parentBox){
+
+    checkUrlParams();
+
     var outputEl = document.getElementById(parentBox);
     /* while(outputEl.attributes.length > 0){
         outputEl.removeAttribute(outputEl.attributes[0].name);
@@ -335,60 +375,80 @@ function outputData(parentBox){
     outputEl.setAttribute("id",parentBox); */
     outputEl.classList.add("rendered");
     var cookieData = JSON.parse(getCookie('inputData'));
-    var outputHTML = "";
-    outputHTML += "<div id=\"sportos-results\">";
-        outputHTML += "<div class=\"results-col col1\">";
-            outputHTML += "<div class=\"gender-relationship sportos-block\">";
-                outputHTML += "<h3 class=\"sportos-gender\" >" + getValueByName(cookieData, "gender") + "</h3>";
-                outputHTML += "<h3 class=\"sportos-relationship\" >" + getValueByName(cookieData, "relationship") + "</h3>";
-            outputHTML +="</div><!--/.gender-relationship-->"
-            outputHTML += "<div class=\"age-location sportos-block\">";
-                outputHTML += "<h3 class=\"sportos-age\" >" + getValueByName(cookieData, "age") + "</h3>";
-                outputHTML += "<h3 class=\"sportos-location\" >" + getValueByName(cookieData, "location") + "</h3>";
-            outputHTML +="</div><!--/.age-location-->"
-            outputHTML += "<div class=\"focus sportos-block\" >";
-                var focusVals = new Array;
-                focusVals = getValueByName(cookieData, "focus");
-                if(focusVals.length > 0 ){
-                    for ( i=0 ; focusVals.length > i ; i++){
-                        outputHTML += "<div class=\"sportos-focus-item\" >" + focusVals[i] + "</div>";
+
+    if(cookieData){
+        var outputHTML = "";
+        outputHTML += "<div id=\"sportos-results\">";
+            outputHTML += "<div class=\"results-col col1\">";
+                outputHTML += "<div class=\"gender-relationship sportos-block\">";
+                    outputHTML += "<h3 class=\"sportos-gender\" >" + getValueByName(cookieData, "gender") + "</h3>";
+                    outputHTML += "<h3 class=\"sportos-relationship\" >" + getValueByName(cookieData, "relationship") + "</h3>";
+                outputHTML +="</div><!--/.gender-relationship-->"
+                outputHTML += "<div class=\"age-location sportos-block\">";
+                    outputHTML += "<h3 class=\"sportos-age\" >" + getValueByName(cookieData, "age") + "</h3>";
+                    outputHTML += "<h3 class=\"sportos-location\" >" + getValueByName(cookieData, "location") + "</h3>";
+                outputHTML +="</div><!--/.age-location-->"
+                outputHTML += "<div class=\"focus sportos-block\" >";
+                    var focusVals = new Array;
+                    focusVals = getValueByName(cookieData, "focus");
+                    if(focusVals.length > 0 ){
+                        for ( i=0 ; focusVals.length > i ; i++){
+                            outputHTML += "<div class=\"sportos-focus-item\" >" + focusVals[i] + "</div>";
+                        }
                     }
-                }
-            outputHTML += "</div><!--/.focus-->";
-        outputHTML += "</div><!--/.results-col.col1-->";
-        outputHTML += "<div class=\"results-col col2\">";
-            outputHTML += "<div class=\"sportos-block goals\">";
-                outputHTML += "<h3 class=\"goals sportos-label\">Goals</h3>";
-                outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>Driven by motivation and shaped by values, goals are targeted, desired results.</p></div></div>";
-                outputHTML += "<p class=\"goals sportos-value\">" + getValueByName(cookieData, "goals") + "</p>";
-            outputHTML += "</div><!--/.sportos-block.goals-->";
-            outputHTML += "<div class=\"sportos-block motivation\">";
-                outputHTML += "<h3 class=\"motivation sportos-label\">Motivation</h3>";
-                outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>Underpinned by values, motivation is the combination of desires, reasons, and needs that drive an athlete to set goals and upgrade behaviors.</p></div></div>";
-                outputHTML += "<p class=\"motivation sportos-value\">" + getValueByName(cookieData, "motivation") + "</p>";
-            outputHTML += "</div><!--/.sportos-block.motivation-->";
-            outputHTML += "<div class=\"sportos-block values\">";
-                var valueVals = new Array;
-                valueVals = getValueByName(cookieData, "values");
-                outputHTML += "<h3 class=\"values sportos-label\">Values</h3>";
-                outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>The athlete’s most important and cherished ideals, values are at the core of what drives the desire to set goals and create positive change.</p></div></div>";
-                outputHTML += "<div class=\"values sportos-value\">";
-                for ( i=0 ; valueVals.length > i ; i++){
-                    outputHTML += "<div class=\"sportos-values-item\" >" + valueVals[i] + "</div>";
-                }
-                outputHTML += "</div><!--/.values.sportos-value-->";
-            outputHTML += "</div><!--/.sportos-block.values-->";
-        outputHTML += "</div><!--/.results-col.col2-->";
-    outputHTML += "</div><!--#sportos-results-->";
-    outputEl.innerHTML = outputHTML;
+                outputHTML += "</div><!--/.focus-->";
+            outputHTML += "</div><!--/.results-col.col1-->";
+            outputHTML += "<div class=\"results-col col2\">";
+                outputHTML += "<div class=\"sportos-block goals\">";
+                    outputHTML += "<h3 class=\"goals sportos-label\">Goals</h3>";
+                    outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>Driven by motivation and shaped by values, goals are targeted, desired results.</p></div></div>";
+                    outputHTML += "<p class=\"goals sportos-value\">" + getValueByName(cookieData, "goals") + "</p>";
+                outputHTML += "</div><!--/.sportos-block.goals-->";
+                outputHTML += "<div class=\"sportos-block motivation\">";
+                    outputHTML += "<h3 class=\"motivation sportos-label\">Motivation</h3>";
+                    outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>Underpinned by values, motivation is the combination of desires, reasons, and needs that drive an athlete to set goals and upgrade behaviors.</p></div></div>";
+                    outputHTML += "<p class=\"motivation sportos-value\">" + getValueByName(cookieData, "motivation") + "</p>";
+                outputHTML += "</div><!--/.sportos-block.motivation-->";
+                outputHTML += "<div class=\"sportos-block values\">";
+                    var valueVals = new Array;
+                    valueVals = getValueByName(cookieData, "values");
+                    outputHTML += "<h3 class=\"values sportos-label\">Values</h3>";
+                    outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>The athlete’s most important and cherished ideals, values are at the core of what drives the desire to set goals and create positive change.</p></div></div>";
+                    outputHTML += "<div class=\"values sportos-value\">";
+                    for ( i=0 ; valueVals.length > i ; i++){
+                        outputHTML += "<div class=\"sportos-values-item\" >" + valueVals[i] + "</div>";
+                    }
+                    outputHTML += "</div><!--/.values.sportos-value-->";
+                outputHTML += "</div><!--/.sportos-block.values-->";
+            outputHTML += "</div><!--/.results-col.col2-->";
+        outputHTML += "</div><!--#sportos-results-->";
+        outputEl.innerHTML = outputHTML;
+    }
+
+   
+}
+
+function linkifyShareButton(shareButtonID){
+    var shareButton = document.getElementById(shareButtonID);
+    linkURL = "mailto:?subject=SportOS%20Results&body=" + encodeURIComponent("https://www.sportos.skybox0.com" + window.location.pathname + "?inputData=" + JSON.stringify(getCookie("inputData")));
+    shareButton.outerHTML = "<a target=\"blank\" href=\""+linkURL+"\">" + shareButton.outerHTML + "</a>";
+ 
 }
 
 function initSportOS(){
     console.log('wix rendered, loading sportos');
+    //reset inputData to be blank if on first page of form, verified via age field
+    var ageField = document.getElementById("comp-k2qjgqegcollection"); 
+    if (ageField){
+        console.log('resetting form data');
+        setCookie('inputData',JSON.stringify(inputData),1);
+    }
+
     var isResultsPage = initResultsOutput( window.location.pathname );
     if(!isResultsPage){
         initDataTracking();
     }
+    
 }
 
 function loadTestData(){
@@ -397,8 +457,9 @@ function loadTestData(){
 
 function isRendered(){
     if( document.getElementById("comp-k2s91jvplink").getAttribute("target") === "_blank" ){
-        initSportOS();
         clearInterval(checkRendered);
+        initSportOS();
+       
     }else{
         console.log('wix not yet rendered, waiting to load sportos');
     }
