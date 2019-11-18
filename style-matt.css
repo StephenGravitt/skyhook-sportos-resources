@@ -285,8 +285,8 @@ div[class*="radioButton_left-direction"]:hover div[class*="radioButtontext"]::af
     display: block;
 }
 /* Hide the main label on hover... */
-div[class*="checkbox_with-label"]:hover span[class*="checkboxtext"],
-div[class*="radioButton_left-direction"]:hover div[class*="radioButtontext"] {
+#comp-k2qh1frq div[class*="checkbox_with-label"]:hover span[class*="checkboxtext"],
+#comp-k2qj5t61items div[class*="radioButton_left-direction"]:hover div[class*="radioButtontext"] {
     font-size: 0;
 }
 
