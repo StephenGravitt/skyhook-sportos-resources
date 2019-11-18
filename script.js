@@ -338,7 +338,19 @@ function getValueByName(jsonArray, field_name){
     }
 }
 
+function checkUrlParams(){
+    var urlParams = new URLSearchParams( window.location.search );
+    if (urlParams.has("inputData")){
+        setCookie("inputData",urlParams.get("inputData"));
+    }else{
+        urlParams.append('inputData', encodeURIComponent(JSON.stringify(getCookie("inputData"))) )
+    }
+}
+
 function outputData(parentBox){
+
+    checkUrlParams();
+
     var outputEl = document.getElementById(parentBox);
     /* while(outputEl.attributes.length > 0){
         outputEl.removeAttribute(outputEl.attributes[0].name);
@@ -396,8 +408,9 @@ function outputData(parentBox){
 
 function linkifyShareButton(shareButtonID){
     var shareButton = document.getElementById(shareButtonID);
-    linkURL = "mailto:?subject=SportOS%20Results&body=" + window.location.href + "?inputData=" + encodeURIComponent(JSON.stringify(getCookie("inputData")));
-    shareButton.innerHTML = "<a href=\""+linkURL+"\">" + shareButton.innerHTML + "</a>";
+    linkURL = "mailto:?subject=SportOS%20Results&body=" + window.location.href + "?inputData=" + escape(encodeURIComponent(JSON.stringify(getCookie("inputData"))));
+    shareButton.outerHTML = "<a href=\""+linkURL+"\">" + shareButton.innerHTML + "</a>";
+ 
 }
 
 function initSportOS(){
