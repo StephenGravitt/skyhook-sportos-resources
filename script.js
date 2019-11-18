@@ -342,7 +342,7 @@ function checkUrlParams(){
     var urlParams = new URLSearchParams( window.location.search );
     if (urlParams.has("inputData")){
         urlData = urlParams.get("inputData");
-        if(urlData):
+        if(urlData){
             console.log("input data found in URL, overwriting results with incoming data");
             setCookie("inputData",decodeURIComponent(urlData));
         }
