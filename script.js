@@ -360,9 +360,9 @@ function outputData(parentBox){
     outputEl.setAttribute("id",parentBox); */
     outputEl.classList.add("rendered");
     var cookieData = JSON.parse(getCookie('inputData'));
-    
+
     //verify if string and try to re-parse, double stringification happening with escaped url params
-    if(cookieData.constructor === "isString?".constructor){cookieData = JSON.parse(input2);}
+    if(cookieData.constructor === "isString?".constructor){cookieData = JSON.parse(cookieData);}
 
     var outputHTML = "";
     outputHTML += "<div id=\"sportos-results\">";
