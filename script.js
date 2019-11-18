@@ -374,52 +374,56 @@ function outputData(parentBox){
         cookieData = JSON.parse(cookieData);
     }
 
-    var outputHTML = "";
-    outputHTML += "<div id=\"sportos-results\">";
-        outputHTML += "<div class=\"results-col col1\">";
-            outputHTML += "<div class=\"gender-relationship sportos-block\">";
-                outputHTML += "<h3 class=\"sportos-gender\" >" + getValueByName(cookieData, "gender") + "</h3>";
-                outputHTML += "<h3 class=\"sportos-relationship\" >" + getValueByName(cookieData, "relationship") + "</h3>";
-            outputHTML +="</div><!--/.gender-relationship-->"
-            outputHTML += "<div class=\"age-location sportos-block\">";
-                outputHTML += "<h3 class=\"sportos-age\" >" + getValueByName(cookieData, "age") + "</h3>";
-                outputHTML += "<h3 class=\"sportos-location\" >" + getValueByName(cookieData, "location") + "</h3>";
-            outputHTML +="</div><!--/.age-location-->"
-            outputHTML += "<div class=\"focus sportos-block\" >";
-                var focusVals = new Array;
-                focusVals = getValueByName(cookieData, "focus");
-                if(focusVals.length > 0 ){
-                    for ( i=0 ; focusVals.length > i ; i++){
-                        outputHTML += "<div class=\"sportos-focus-item\" >" + focusVals[i] + "</div>";
+    if(cookieData){
+        var outputHTML = "";
+        outputHTML += "<div id=\"sportos-results\">";
+            outputHTML += "<div class=\"results-col col1\">";
+                outputHTML += "<div class=\"gender-relationship sportos-block\">";
+                    outputHTML += "<h3 class=\"sportos-gender\" >" + getValueByName(cookieData, "gender") + "</h3>";
+                    outputHTML += "<h3 class=\"sportos-relationship\" >" + getValueByName(cookieData, "relationship") + "</h3>";
+                outputHTML +="</div><!--/.gender-relationship-->"
+                outputHTML += "<div class=\"age-location sportos-block\">";
+                    outputHTML += "<h3 class=\"sportos-age\" >" + getValueByName(cookieData, "age") + "</h3>";
+                    outputHTML += "<h3 class=\"sportos-location\" >" + getValueByName(cookieData, "location") + "</h3>";
+                outputHTML +="</div><!--/.age-location-->"
+                outputHTML += "<div class=\"focus sportos-block\" >";
+                    var focusVals = new Array;
+                    focusVals = getValueByName(cookieData, "focus");
+                    if(focusVals.length > 0 ){
+                        for ( i=0 ; focusVals.length > i ; i++){
+                            outputHTML += "<div class=\"sportos-focus-item\" >" + focusVals[i] + "</div>";
+                        }
                     }
-                }
-            outputHTML += "</div><!--/.focus-->";
-        outputHTML += "</div><!--/.results-col.col1-->";
-        outputHTML += "<div class=\"results-col col2\">";
-            outputHTML += "<div class=\"sportos-block goals\">";
-                outputHTML += "<h3 class=\"goals sportos-label\">Goals</h3>";
-                outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>Driven by motivation and shaped by values, goals are targeted, desired results.</p></div></div>";
-                outputHTML += "<p class=\"goals sportos-value\">" + getValueByName(cookieData, "goals") + "</p>";
-            outputHTML += "</div><!--/.sportos-block.goals-->";
-            outputHTML += "<div class=\"sportos-block motivation\">";
-                outputHTML += "<h3 class=\"motivation sportos-label\">Motivation</h3>";
-                outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>Underpinned by values, motivation is the combination of desires, reasons, and needs that drive an athlete to set goals and upgrade behaviors.</p></div></div>";
-                outputHTML += "<p class=\"motivation sportos-value\">" + getValueByName(cookieData, "motivation") + "</p>";
-            outputHTML += "</div><!--/.sportos-block.motivation-->";
-            outputHTML += "<div class=\"sportos-block values\">";
-                var valueVals = new Array;
-                valueVals = getValueByName(cookieData, "values");
-                outputHTML += "<h3 class=\"values sportos-label\">Values</h3>";
-                outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>The athlete’s most important and cherished ideals, values are at the core of what drives the desire to set goals and create positive change.</p></div></div>";
-                outputHTML += "<div class=\"values sportos-value\">";
-                for ( i=0 ; valueVals.length > i ; i++){
-                    outputHTML += "<div class=\"sportos-values-item\" >" + valueVals[i] + "</div>";
-                }
-                outputHTML += "</div><!--/.values.sportos-value-->";
-            outputHTML += "</div><!--/.sportos-block.values-->";
-        outputHTML += "</div><!--/.results-col.col2-->";
-    outputHTML += "</div><!--#sportos-results-->";
-    outputEl.innerHTML = outputHTML;
+                outputHTML += "</div><!--/.focus-->";
+            outputHTML += "</div><!--/.results-col.col1-->";
+            outputHTML += "<div class=\"results-col col2\">";
+                outputHTML += "<div class=\"sportos-block goals\">";
+                    outputHTML += "<h3 class=\"goals sportos-label\">Goals</h3>";
+                    outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>Driven by motivation and shaped by values, goals are targeted, desired results.</p></div></div>";
+                    outputHTML += "<p class=\"goals sportos-value\">" + getValueByName(cookieData, "goals") + "</p>";
+                outputHTML += "</div><!--/.sportos-block.goals-->";
+                outputHTML += "<div class=\"sportos-block motivation\">";
+                    outputHTML += "<h3 class=\"motivation sportos-label\">Motivation</h3>";
+                    outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>Underpinned by values, motivation is the combination of desires, reasons, and needs that drive an athlete to set goals and upgrade behaviors.</p></div></div>";
+                    outputHTML += "<p class=\"motivation sportos-value\">" + getValueByName(cookieData, "motivation") + "</p>";
+                outputHTML += "</div><!--/.sportos-block.motivation-->";
+                outputHTML += "<div class=\"sportos-block values\">";
+                    var valueVals = new Array;
+                    valueVals = getValueByName(cookieData, "values");
+                    outputHTML += "<h3 class=\"values sportos-label\">Values</h3>";
+                    outputHTML += "<div class=\"tool-tip-container\"><img src=\"https://static.wixstatic.com/media/b42ed2_7571210680424427a4dbc7a87b152500~mv2.png/v1/fill/w_24,h_26,al_c,q_80/icon-question-rev.png\"><div class=\"tool-tip-inner\"><p>The athlete’s most important and cherished ideals, values are at the core of what drives the desire to set goals and create positive change.</p></div></div>";
+                    outputHTML += "<div class=\"values sportos-value\">";
+                    for ( i=0 ; valueVals.length > i ; i++){
+                        outputHTML += "<div class=\"sportos-values-item\" >" + valueVals[i] + "</div>";
+                    }
+                    outputHTML += "</div><!--/.values.sportos-value-->";
+                outputHTML += "</div><!--/.sportos-block.values-->";
+            outputHTML += "</div><!--/.results-col.col2-->";
+        outputHTML += "</div><!--#sportos-results-->";
+        outputEl.innerHTML = outputHTML;
+    }
+
+   
 }
 
 function linkifyShareButton(shareButtonID){
