@@ -351,7 +351,7 @@ function checkUrlParams(){
                 urlData = JSON.parse(urlData);
             }
             setCookie("inputData",urlData);
-            console.log(urldata);
+            console.log(urlData);
         }
     }else{
         cookieData = getCookie("inputData");
