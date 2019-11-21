@@ -56,7 +56,8 @@ var successPages = [
 	{
 	   "page_name": "balance",
 	   "page_url": "/success-balance",
-	   "parent_box": ""
+       "parent_box": "comp-k2qog9bl",
+       "share_button": "comp-k2qogcdolink"
 	},
 	{
 	   "page_name": "body composition",
@@ -109,9 +110,7 @@ var successPages = [
 	},
 	{
 	   "page_name": "resilience",
-	   "page_url": "/success-resilience",
-	   "parent_box": "comp-k2qog9bl",
-       "share_button": "comp-k2qogcdolink"
+	   "page_url": "/success-resilience"
 	},
 	{
 	   "page_name": "speed",
